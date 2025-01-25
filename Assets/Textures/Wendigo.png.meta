@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wendigo_0: -4864586392625904324
+      Wendigo_1: -4655982190135645266
+      Wendigo_2: -7493576026140581246
+      Wendigo_3: -6736668479887239324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mothman_0: -8152745659105356879
+      Mothman_1: -6176697415691461422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Krasue_0: 4445081370403522744
+      Krasue_1: -3810008095073838869
+      Krasue_2: -6345604824465151418
+      Krasue_3: 8318889538828573198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
