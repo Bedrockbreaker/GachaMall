@@ -24,8 +24,7 @@ public class ControllerPlayer : ControllerAbstract
 	protected virtual void HandleInteract(InputAction.CallbackContext context)
 	{
 		if (Pawn == null) return;
-		// TODO: Pawn.Interact();
-		Debug.Log("Interact");
+		Pawn.Interact();
 	}
 
 	public virtual int AddCoins(int count)

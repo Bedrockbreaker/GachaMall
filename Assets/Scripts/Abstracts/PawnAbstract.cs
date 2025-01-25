@@ -16,6 +16,7 @@ public abstract class PawnAbstract : MonoBehaviour
 	
 	public event Action<ControllerAbstract> OnControllerBound;
 	public event Action OnControllerUnbound;
+	public event Action OnInteract;
 
 	public virtual bool BindController(ControllerAbstract controller)
 	{
@@ -48,6 +49,11 @@ public abstract class PawnAbstract : MonoBehaviour
 			+ (Vector3)(directionNormalized * CameraLookaheadDistance);
 
 		Mover.Move(directionNormalized);
+	}
+
+	public virtual void Interact()
+	{
+		OnInteract?.Invoke();
 	}
 
 	public virtual void Start()
