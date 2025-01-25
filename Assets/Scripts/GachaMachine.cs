@@ -42,6 +42,8 @@ public class GachaMachine : MonoBehaviour
         OnTriggerExit2D(playerCollider);
         OnTriggerEnter2D(playerCollider);
 
+        // TODO: check if player has acquired all gachas
+
         GachaDrops drop = choose_gacha();
         GachaBubble gachaBubble = Instantiate(
             gachaBubblePrefab,
@@ -64,13 +66,12 @@ public class GachaMachine : MonoBehaviour
         }
 
         int random_gacha = Random.Range(0, total_chance);
-        int cumlative_chance = 0;
 
         foreach (GachaDrops drop in drops){
-            cumlative_chance += drop.drop_weight;
+            random_gacha -= drop.drop_weight;
 
             //select gacha
-            if (random_gacha <= cumlative_chance){
+            if (random_gacha < 0){
 
                 //reduce weight
                 if (drop.drop_weight>1){

@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Pawn>k__BackingField: {fileID: 810718898}
-  <Coins>k__BackingField: 0
+  <Coins>k__BackingField: 100
   gui: {fileID: 1322520174}
   RespawnPoint: {fileID: 0}
 --- !u!114 &1322520174 stripped
@@ -731,6 +731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GachaMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 6339648781671176224, guid: 14690d0940c79ec459da2e6b9bd620d8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1046361023, guid: e0b75661efa77b54da3d48262effa13d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
