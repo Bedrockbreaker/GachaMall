@@ -8,7 +8,6 @@ public class ControllerPlayer : ControllerAbstract
 	protected InputAction inputMove;
 	protected InputAction inputInteract;
 
-	
 	[SerializeField]
 	protected GUI gui;
 	[SerializeField]
@@ -18,7 +17,8 @@ public class ControllerPlayer : ControllerAbstract
 	{
 		if (Pawn == null) return;
 		Vector2 rawDirection = inputMove.ReadValue<Vector2>();
-		Pawn.Move(rawDirection.normalized);
+		if (rawDirection.sqrMagnitude > 1f) rawDirection.Normalize();
+		Pawn.Move(rawDirection);
 	}
 
 	protected virtual void HandleInteract(InputAction.CallbackContext context)

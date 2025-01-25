@@ -44,7 +44,7 @@ public abstract class ControllerAbstract : MonoBehaviour
         GameManager.Instance.RegisterController(this);
     }
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         HandleInput();
     }
