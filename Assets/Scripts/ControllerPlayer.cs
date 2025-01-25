@@ -7,6 +7,8 @@ public class ControllerPlayer : ControllerAbstract
 
 	protected InputAction inputMove;
 	protected InputAction inputInteract;
+	[SerializeField]
+	protected GUI gui;
 
 	protected override void HandleInput()
 	{
@@ -26,6 +28,7 @@ public class ControllerPlayer : ControllerAbstract
     {
         Assert.IsTrue(count > 0);
         Coins += count;
+		gui.SetMoney(Coins);
         return Coins;
     }
 
@@ -34,6 +37,7 @@ public class ControllerPlayer : ControllerAbstract
         Assert.IsTrue(count > 0);
         // TODO: kill the player if not enough?
         Coins -= count;
+		gui.SetMoney(Coins);
         return Coins;
     }
 
@@ -44,6 +48,7 @@ public class ControllerPlayer : ControllerAbstract
 		inputMove = InputSystem.actions.FindAction("Move");
 		inputInteract = InputSystem.actions.FindAction("Interact");
 		inputInteract.performed += HandleInteract;
+		gui.SetMoney(Coins);
 	}
 
     public override void OnDestroy()
