@@ -82,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2311659948842064771, guid: 1dfe3b3f49bffdb4686e60569802eea8, type: 3}
-  m_Color: {r: 0.5607414, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 8425629172793648457, guid: 20035b5d367905444bf54323ca0cdbc6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 832258953057452606}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3e31e1e6f5522a46afc615a1705bcd5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 388d78329813345478b262e20f29eee1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3803662030772250555}
   m_Layer: 0
-  m_Name: EnemyMary
+  m_Name: EnemyMari
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0059863627, y: -0.081813574}
+  m_Offset: {x: 0.017658949, y: -0.017360091}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -329,7 +329,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3973738, y: 1.1636264}
+  m_Size: {x: 0.28788996, y: 0.32895637}
   m_EdgeRadius: 0
 --- !u!1 &7033770135330274239
 GameObject:
@@ -397,7 +397,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.14367223, y: -0.11174542}
+  m_Offset: {x: 0.15799892, y: -0.008397102}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -407,5 +407,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.50512826, y: 1.22349}
+  m_Size: {x: 0.3098635, y: 0.39146924}
   m_EdgeRadius: 0

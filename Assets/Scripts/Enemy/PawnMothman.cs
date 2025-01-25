@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PawnMothman : PawnEnemy
 {
     public override void default_state(){
-        wander();      
+        Controller.target=GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
     public override void target_state(){
