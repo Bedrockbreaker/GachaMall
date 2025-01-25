@@ -8,6 +8,8 @@ public abstract class PawnAbstract : MonoBehaviour
 
 	[field: SerializeField]
 	public ControllerAbstract Controller { get; protected set; }
+	[field: SerializeField]
+	public MoverAbstract Mover { get; protected set; }
 
 	public event Action<ControllerAbstract> OnControllerBound;
 	public event Action OnControllerUnbound;
@@ -35,7 +37,11 @@ public abstract class PawnAbstract : MonoBehaviour
 
 	public virtual bool UnbindController() => BindController(null);
 
-	public abstract void Move(Vector2 normalizedDirection);
+	public virtual void Move(Vector2 directionNormalized)
+	{
+		if (Mover == null) return;
+		Mover.Move(directionNormalized);
+	}
 
 	public virtual void Start()
 	{
