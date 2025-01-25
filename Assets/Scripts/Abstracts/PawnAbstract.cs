@@ -13,7 +13,7 @@ public abstract class PawnAbstract : MonoBehaviour
 	[field: SerializeField]
 	public Transform CameraLookTarget { get; protected set; }
 	public float CameraLookaheadDistance = 2.0f;
-
+	
 	public event Action<ControllerAbstract> OnControllerBound;
 	public event Action OnControllerUnbound;
 
@@ -53,6 +53,7 @@ public abstract class PawnAbstract : MonoBehaviour
 	public virtual void Start()
 	{
 		GameManager.Instance.RegisterPawn(this);
+
 	}
 
 	public virtual void OnDestroy()

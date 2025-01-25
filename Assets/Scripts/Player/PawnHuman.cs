@@ -8,6 +8,8 @@ public class PawnHuman : PawnAbstract
 	[field: SerializeField]
 	public Animator Animator { get; protected set; }
 
+
+
     public override void Move(Vector2 directionNormalized)
     {
         base.Move(directionNormalized);

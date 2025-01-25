@@ -7,8 +7,12 @@ public class ControllerPlayer : ControllerAbstract
 
 	protected InputAction inputMove;
 	protected InputAction inputInteract;
+
+	
 	[SerializeField]
 	protected GUI gui;
+	[SerializeField]
+	protected GameObject RespawnPoint;
 
 	protected override void HandleInput()
 	{
@@ -40,6 +44,13 @@ public class ControllerPlayer : ControllerAbstract
 		gui.SetMoney(Coins);
         return Coins;
     }
+
+	public virtual void Die(){
+		if (Coins>0){
+			RemoveCoins(Coins);
+		}
+		Pawn.transform.position = RespawnPoint.transform.position;
+	}
 
 	public override void Start()
 	{
