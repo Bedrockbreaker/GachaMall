@@ -336,6 +336,7 @@ MonoBehaviour:
   <Pawn>k__BackingField: {fileID: 810718898}
   <Coins>k__BackingField: 0
   gui: {fileID: 1322520174}
+  RespawnPoint: {fileID: 0}
 --- !u!114 &1322520174 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5897247752592514684, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
