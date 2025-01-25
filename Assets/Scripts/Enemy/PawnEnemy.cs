@@ -52,13 +52,11 @@ public class PawnEnemy : MonoBehaviour
         if (!other.TryGetComponent<PawnHuman>(out var human)) return;
 		ControllerPlayer player = human.Controller as ControllerPlayer;
 		if (player == null) return;
-        print(player.gameObject.name);
-        print(player.Pawn.gameObject.name);
         var player_pawn=player.Pawn.gameObject;
+        
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach ( GameObject enemy in enemies){
             var enemy_game_object = enemy.gameObject;
-            print("enemy name: "+enemy_game_object.name);
             
             var pawn_enemy = enemy_game_object.GetComponent<PawnEnemy>();
             pawn_enemy.set_target(player_pawn);
