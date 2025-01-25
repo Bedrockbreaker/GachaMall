@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class GachaMachine : MonoBehaviour
 {
     
     private bool canInteract = true;
+    public event Action OnGachaCollected;
 
     [Header("Component References")]
     [SerializeField]
@@ -56,6 +58,7 @@ public class GachaMachine : MonoBehaviour
         // TODO: play sound
         // TODO: wait for animation
 
+        OnGachaCollected?.Invoke();
         canInteract = true;
     }
 
@@ -65,7 +68,7 @@ public class GachaMachine : MonoBehaviour
             total_chance += drop.drop_weight;
         }
 
-        int random_gacha = Random.Range(0, total_chance);
+        int random_gacha = UnityEngine.Random.Range(0, total_chance);
 
         foreach (GachaDrops drop in drops){
             random_gacha -= drop.drop_weight;

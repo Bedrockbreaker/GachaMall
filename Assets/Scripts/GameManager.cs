@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -8,8 +9,16 @@ public sealed class GameManager : MonoBehaviour
 
 	private List<PawnAbstract> Pawns { get; } = new();
 	private List<ControllerAbstract> Controllers { get; } = new();
+	private List<CoinSpawner> CoinSpawners { get; } = new();
+	private List<CoinSpawner> ValidCoinSpawners { get; } = new();
 	[SerializeField]
 	private SmoothCamera mainCamera;
+	[SerializeField]
+	private GachaMachine gachaMachine;
+	[SerializeField]
+	private float coinSpawnDelay = 15f;
+	[SerializeField]
+	private int maxCoinSpawns = 4;
 
 	public GameManager()
 	{
@@ -30,10 +39,16 @@ public sealed class GameManager : MonoBehaviour
 		}
 	}
 
+	private void Start()
+	{
+		// TODO: only start game after play button is pressed
+		StartGame();
+	}
+
 	public void StartGame()
 	{
-		// TODO: stub, start game
-		Debug.Log("Game started");
+		StartCoroutine(SpawnCoin());
+		gachaMachine.OnGachaCollected += OnGachaCollected;
 	}
 
 	public void RegisterController(ControllerAbstract controller)
@@ -94,5 +109,48 @@ public sealed class GameManager : MonoBehaviour
 		}
 
 		controller.Possess(pawn);
+	}
+
+	public void RegisterCoinSpawner(CoinSpawner coinSpawner)
+	{
+		if (!CoinSpawners.Contains(coinSpawner)) CoinSpawners.Add(coinSpawner);
+		if (!ValidCoinSpawners.Contains(coinSpawner) && coinSpawner.CanSpawnCoin)
+		{
+			ValidCoinSpawners.Add(coinSpawner);
+		}
+	}
+
+	public void UnregisterCoinSpawner(CoinSpawner coinSpawner)
+	{
+		CoinSpawners.Remove(coinSpawner);
+		ValidCoinSpawners.Remove(coinSpawner);
+	}
+
+	private IEnumerator SpawnCoin()
+	{
+		yield return new WaitForSeconds(coinSpawnDelay);
+
+		if (ValidCoinSpawners.Count != 0 && maxCoinSpawns > 0)
+		{
+			CoinSpawner spawner = ValidCoinSpawners[Random.Range(0, ValidCoinSpawners.Count)];
+			spawner.SpawnCoin();
+			maxCoinSpawns--;
+
+			ValidCoinSpawners.Remove(spawner);
+		}
+
+		StartCoroutine(SpawnCoin());
+	}
+
+	private void OnGachaCollected()
+	{
+		foreach (CoinSpawner coinSpawner in CoinSpawners)
+		{
+			if (coinSpawner.ResetSpawner())
+			{
+				maxCoinSpawns++;
+				ValidCoinSpawners.Add(coinSpawner);
+			}
+		}
 	}
 }

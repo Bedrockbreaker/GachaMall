@@ -6,7 +6,6 @@ public class MoverBasic : MoverAbstract
 
     public override void Move(Vector2 directionNormalized)
     {
-        Debug.Log("Move: " + directionNormalized);
         Vector2 delta = speed * directionNormalized;
         rigidbody.linearVelocity = delta;
     }
