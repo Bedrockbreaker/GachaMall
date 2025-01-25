@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public abstract class ControllerAbstract : MonoBehaviour
 {
@@ -39,21 +38,6 @@ public abstract class ControllerAbstract : MonoBehaviour
     }
 
     public virtual bool Unpossess() => Possess(null);
-
-    public virtual int AddCoins(int count)
-    {
-        Assert.IsTrue(count > 0);
-        Coins += count;
-        return Coins;
-    }
-
-    public virtual int RemoveCoins(int count)
-    {
-        Assert.IsTrue(count > 0);
-        // TODO: kill the player if not enough?
-        Coins -= count;
-        return Coins;
-    }
 
     public virtual void Start()
     {
