@@ -10,6 +10,9 @@ public abstract class PawnAbstract : MonoBehaviour
 	public ControllerAbstract Controller { get; protected set; }
 	[field: SerializeField]
 	public MoverAbstract Mover { get; protected set; }
+	[field: SerializeField]
+	public Transform CameraLookTarget { get; protected set; }
+	public float CameraLookaheadDistance = 2.0f;
 
 	public event Action<ControllerAbstract> OnControllerBound;
 	public event Action OnControllerUnbound;
@@ -40,6 +43,10 @@ public abstract class PawnAbstract : MonoBehaviour
 	public virtual void Move(Vector2 directionNormalized)
 	{
 		if (Mover == null) return;
+
+		CameraLookTarget.position = transform.position
+			+ (Vector3)(directionNormalized * CameraLookaheadDistance);
+
 		Mover.Move(directionNormalized);
 	}
 
