@@ -1,6 +1,6 @@
 public class ControllerPlayer : ControllerAbstract
 {
-	public override void Update()
+	protected override void HandleInput()
 	{
 		// handle input
 	}
