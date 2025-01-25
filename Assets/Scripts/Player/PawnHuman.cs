@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pawn : PawnAbstract
+public class PawnHuman : PawnAbstract
 {
 
 	[field: SerializeField]

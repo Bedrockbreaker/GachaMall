@@ -8,6 +8,8 @@ public sealed class GameManager : MonoBehaviour
 
 	private List<PawnAbstract> Pawns { get; } = new();
 	private List<ControllerAbstract> Controllers { get; } = new();
+	[SerializeField]
+	private SmoothCamera mainCamera;
 
 	public GameManager()
 	{
@@ -38,7 +40,12 @@ public sealed class GameManager : MonoBehaviour
 	{
 		if (!Controllers.Contains(controller)) Controllers.Add(controller);
 
-		// TODO: player controller specific stuff?
+		if (controller is not ControllerPlayer player) return;
+
+		PawnAbstract playerPawn = player.Pawn;
+		if (playerPawn == null) return;
+
+		mainCamera.target = playerPawn.CameraLookTarget;
 	}
 
 	public void UnregisterController(ControllerAbstract controller)
