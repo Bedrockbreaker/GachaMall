@@ -1,13 +1,11 @@
-using NavMeshPlus.Extensions;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 
 public class PawnEnemy : MonoBehaviour
 {
     public ControllerEnemy Controller;
     public MoverAbstract Mover;
     public AudioSource hitSource;
+    public AudioClip jumpscare;
     
     public float sight_range=25;
     public float chase_timeout = 5;
@@ -98,6 +96,7 @@ public class PawnEnemy : MonoBehaviour
 
         clear_target();
 		player.Die(Controller.rarity);
+        hitSource.PlayOneShot(jumpscare);
         hitSource.Play(0);
     }
 

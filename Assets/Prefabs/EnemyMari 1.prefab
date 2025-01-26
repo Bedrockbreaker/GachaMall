@@ -285,6 +285,7 @@ MonoBehaviour:
   Controller: {fileID: 2597160293300975817}
   Mover: {fileID: 483368953327154957}
   hitSource: {fileID: 7126274246766560753}
+  jumpscare: {fileID: 8300000, guid: 62cc99beb08832643a7b876f16613cfe, type: 3}
   sight_range: 25
   chase_timeout: 5
   retarget_timeout: 3

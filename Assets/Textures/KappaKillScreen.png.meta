@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KappaKillScreen_0: 4241701152882219598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

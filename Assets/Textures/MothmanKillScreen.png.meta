@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MothmanKillScreen_0: 914858244604546046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

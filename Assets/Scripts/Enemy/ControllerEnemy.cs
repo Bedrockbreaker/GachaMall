@@ -1,8 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions;
-using UnityEngine.InputSystem;
 
 public class ControllerEnemy : MonoBehaviour
 {
@@ -16,6 +13,7 @@ public class ControllerEnemy : MonoBehaviour
     //private
 	public void Start()
 	{
+        if (agent == null) return;
         agent.updateRotation=false;
         agent.updateUpAxis=false;
 
@@ -24,7 +22,7 @@ public class ControllerEnemy : MonoBehaviour
         }
 	}
     public void Update()
-    {        
+    {     
         if (target){
             Pawn.target_state();
         }else{

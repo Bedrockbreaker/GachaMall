@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KrasueKillScreen_0: -5179708224431352592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

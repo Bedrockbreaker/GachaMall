@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MariLwydKillScreen_0: -4748284037851391327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

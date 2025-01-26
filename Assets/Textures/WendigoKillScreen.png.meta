@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WendigoKillScreen_0: -7222437755130705913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

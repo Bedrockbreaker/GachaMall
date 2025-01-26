@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 
 public class PawnMothman : PawnEnemy
 {
     public override void default_state(){
+        if (!GameManager.Instance.Player.CollectedRarities.Contains(GachaRarities.Legendary)) return;
         Controller.target=GameObject.FindGameObjectsWithTag("Player")[0];
     }
 

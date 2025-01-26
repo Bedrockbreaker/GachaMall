@@ -50,6 +50,16 @@ public class GUI : MonoBehaviour
 	private Sprite deathScreenEpic;
 	[SerializeField]
 	private Sprite deathScreenLegendary;
+	[SerializeField]
+	private GameObject enemyCommon;
+	[SerializeField]
+	private GameObject enemyUncommon;
+	[SerializeField]
+	private GameObject enemyRare;
+	[SerializeField]
+	private GameObject enemyEpic;
+	[SerializeField]
+	private GameObject enemyLegendary;
 
 	public void SetMoney(int coinsAmount)
 	{
@@ -97,6 +107,11 @@ public class GUI : MonoBehaviour
 				gachaEpic.color = new (0, 0, 0, 0);
 				gachaLegendary.color = new (0, 0, 0, 0);
 				finalCutscene.SetActive(true);
+				enemyCommon.SetActive(false);
+				enemyUncommon.SetActive(false);
+				enemyRare.SetActive(false);
+				enemyEpic.SetActive(false);
+				enemyLegendary.SetActive(false);
 				break;
 			default:
 				throw new Exception("Invalid rarity");
