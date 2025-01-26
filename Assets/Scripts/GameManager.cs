@@ -22,6 +22,9 @@ public sealed class GameManager : MonoBehaviour
 	private float coinSpawnDelay = 15f;
 	[SerializeField]
 	private int maxCoinSpawns = 4;
+	[SerializeField]
+	public EnemySpawner EnemySpawner { get; } = new();
+
 
 	public GameManager()
 	{
@@ -133,7 +136,6 @@ public sealed class GameManager : MonoBehaviour
 		CoinSpawners.Remove(coinSpawner);
 		ValidCoinSpawners.Remove(coinSpawner);
 	}
-
 	private IEnumerator SpawnCoin()
 	{
 		yield return new WaitForSeconds(coinSpawnDelay);
@@ -164,6 +166,7 @@ public sealed class GameManager : MonoBehaviour
 		}
 
 		gui.RevealGacha(drop.rarity);
+		EnemySpawner.SpawnEnemy(drop.rarity);
 	}
 
 	private void OnGachaAnimationFinished() => player.allowInput = true;
