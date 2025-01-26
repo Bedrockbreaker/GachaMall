@@ -17,6 +17,9 @@ public class ControllerPlayer : ControllerAbstract
 
 	protected InputAction inputMove;
 	protected InputAction inputInteract;
+#if UNITY_EDITOR
+	protected InputAction inputDebug;
+#endif
 
 	[SerializeField]
 	protected GUI gui;
@@ -43,6 +46,13 @@ public class ControllerPlayer : ControllerAbstract
 		if (Pawn == null) return;
 		Pawn.Interact();
 	}
+
+#if UNITY_EDITOR
+	protected virtual void HandleDebug(InputAction.CallbackContext context)
+	{
+		AddCoins(100);
+	}
+#endif
 
 	public virtual int AddCoins(int count)
     {
@@ -82,6 +92,10 @@ public class ControllerPlayer : ControllerAbstract
 		inputMove = InputSystem.actions.FindAction("Move");
 		inputInteract = InputSystem.actions.FindAction("Interact");
 		inputInteract.performed += HandleInteract;
+#if UNITY_EDITOR
+		inputDebug = InputSystem.actions.FindAction("Jump");
+		inputDebug.performed += HandleDebug;
+#endif
 		gui.SetMoney(Coins);
 	}
 
