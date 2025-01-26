@@ -23,6 +23,8 @@ public class GachaBubble : MonoBehaviour
 	[SerializeField]
 	private TextMeshProUGUI collectedText;
 	[SerializeField]
+	private TextMeshProUGUI finalText;
+	[SerializeField]
 	private Sprite spriteBottomOpen;
 	[SerializeField]
 	private Sprite spriteCommonTop;
@@ -70,10 +72,19 @@ public class GachaBubble : MonoBehaviour
 	private Sprite spriteUniqueOpen;
 	[SerializeField]
 	private Sprite spriteUniqueBottom;
+	[SerializeField]
+	private Sprite spriteUniquePlush;
+	[SerializeField]
+	private AudioClip gachaOpen;
+	[SerializeField]
+	private AudioClip gachaFanfare;
 
 	public void Start()
 	{
 		SetRarity(Rarity);
+		finalText.enabled = 
+			GameManager.Instance.Player.CollectedRarities.Count == 4
+			&& !GameManager.Instance.Player.CollectedRarities.Contains(Rarity);
 	}
 
 	// Referenced by timeline signal
@@ -118,9 +129,13 @@ public class GachaBubble : MonoBehaviour
 			GachaRarities.Rare => spriteRarePlush,
 			GachaRarities.Epic => spriteEpicPlush,
 			GachaRarities.Legendary => spriteLegendaryPlush,
-			GachaRarities.Unique => null,
+			GachaRarities.Unique => spriteUniquePlush,
 			_ => throw new Exception("Invalid rarity")
 		};
+
+		GameManager.Instance.PlayOneShot(gachaOpen);
+		GameManager.Instance.PlayOneShot(gachaFanfare);
+		GameManager.Instance.Player.CollectRarity(Rarity);
     }
 
 	// Referenced by timeline signal

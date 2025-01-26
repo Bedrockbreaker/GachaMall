@@ -11,7 +11,9 @@ public sealed class GameManager : MonoBehaviour
 	private List<ControllerAbstract> Controllers { get; } = new();
 	private List<CoinSpawner> CoinSpawners { get; } = new();
 	private List<CoinSpawner> ValidCoinSpawners { get; } = new();
-	private ControllerPlayer player;
+	public ControllerPlayer Player { get; private set; }
+	[SerializeField]
+	private AudioSource audioSource;
 	[SerializeField]
 	private SmoothCamera mainCamera;
 	[SerializeField]
@@ -26,21 +28,16 @@ public sealed class GameManager : MonoBehaviour
 	public EnemySpawner EnemySpawner { get; } = new();
 
 
-	public GameManager()
-	{
-		if (Instance != null) return;
-		Instance = this;
-	}
-
 	private void Awake()
 	{
-		if (Instance != this)
+		if (Instance != null && Instance != this)
 		{
 			Destroy(gameObject);
 			return;
 		}
 		else
 		{
+			Instance = this;
 			DontDestroyOnLoad(gameObject);
 		}
 	}
@@ -64,12 +61,10 @@ public sealed class GameManager : MonoBehaviour
 
 		if (controller is not ControllerPlayer player) return;
 
-		this.player = player;
+		Player = player;
 
 		PawnAbstract playerPawn = player.Pawn;
 		if (playerPawn == null) return;
-
-		Debug.Log(mainCamera);
 
 		mainCamera.target = playerPawn.CameraLookTarget;
 	}
@@ -154,7 +149,7 @@ public sealed class GameManager : MonoBehaviour
 
 	private void OnGachaCollected(GachaDrops drop)
 	{
-		player.allowInput = false;
+		Player.AllowInput = false;
 
 		foreach (CoinSpawner coinSpawner in CoinSpawners)
 		{
@@ -169,5 +164,7 @@ public sealed class GameManager : MonoBehaviour
 		EnemySpawner.SpawnEnemy(drop.rarity);
 	}
 
-	private void OnGachaAnimationFinished() => player.allowInput = true;
+	private void OnGachaAnimationFinished() => Player.AllowInput = true;
+
+	public void PlayOneShot(AudioClip clip) => audioSource.PlayOneShot(clip);
 }

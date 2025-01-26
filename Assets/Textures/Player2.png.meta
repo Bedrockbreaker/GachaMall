@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: fb80c1d534e72f94f9abd5775e7935e7
+guid: 8f77f44c9131cf7488e28f781253fb5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1531156437787690342
-    second: Kappa_0
+      213: 3345508739736421500
+    second: Player2_0
   - first:
-      213: 49732151310556452
-    second: Kappa_1
+      213: 1889441527787109331
+    second: Player2_1
   - first:
-      213: -5345284485789244954
-    second: Kappa_2
+      213: -1187915874858794847
+    second: Player2_2
+  - first:
+      213: 7381125764319795907
+    second: Player2_3
+  - first:
+      213: 6066618297632046879
+    second: Player2_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +112,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kappa_0
+      name: Player2_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 31
-        width: 15
-        height: 23
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a9abc1e055d30cae0800000000000000
-      internalID: -1531156437787690342
+      spriteID: e72248371cdd9aa41a1ffa7008751aee
+      internalID: -515599086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kappa_1
+      name: Player2_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 31
-        width: 15
-        height: 22
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42d18ccc02fa0b000800000000000000
-      internalID: 49732151310556452
+      spriteID: d7adf59486bd80c409f900ef542b1b65
+      internalID: 1265836748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kappa_2
+      name: Player2_2
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded19b88d1b110f4c8e5d5ae1892521b
+      internalID: 830287849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player2_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3520514f5e6b22848a9bc3834a7d6da0
+      internalID: 377435198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player2_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 15
-        height: 20
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6e12029a41cb1d5b0800000000000000
-      internalID: -5345284485789244954
+      spriteID: 3e1d032f4b18fdc438c541332be800ca
+      internalID: -495012170
       vertices: []
       indices: 
       edges: []
@@ -175,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4b7ceba9397f74841976736ba123d07c
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kappa_0: -1531156437787690342
-      Kappa_1: 49732151310556452
-      Kappa_2: -5345284485789244954
+      Player2_0: -515599086
+      Player2_1: 1265836748
+      Player2_2: 830287849
+      Player2_3: 377435198
+      Player2_4: -495012170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

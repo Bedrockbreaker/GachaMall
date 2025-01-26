@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -5,19 +6,34 @@ using UnityEngine.InputSystem;
 public class ControllerPlayer : ControllerAbstract
 {
 
-	public bool allowInput = true;
+	private bool allowInput = true;
+	public bool AllowInput {
+		get => allowInput;
+		set {
+			allowInput = value;
+			Pawn.Move(Vector2.zero); // stop movement animation
+		}
+	}
 
 	protected InputAction inputMove;
 	protected InputAction inputInteract;
+#if UNITY_EDITOR
+	protected InputAction inputDebug;
+#endif
 
 	[SerializeField]
 	protected GUI gui;
 	[SerializeField]
 	protected GameObject RespawnPoint;
+	[field: SerializeField]
+	public List<GachaRarities> CollectedRarities { get; } = new();
+
+	[SerializeField]
+	private AudioClip newGachaSound;
 
 	protected override void HandleInput()
 	{
-		if (!allowInput) return;
+		if (!AllowInput) return;
 		if (Pawn == null) return;
 		Vector2 rawDirection = inputMove.ReadValue<Vector2>();
 		if (rawDirection.sqrMagnitude > 1f) rawDirection.Normalize();
@@ -26,10 +42,17 @@ public class ControllerPlayer : ControllerAbstract
 
 	protected virtual void HandleInteract(InputAction.CallbackContext context)
 	{
-		if (!allowInput) return;
+		if (!AllowInput) return;
 		if (Pawn == null) return;
 		Pawn.Interact();
 	}
+
+#if UNITY_EDITOR
+	protected virtual void HandleDebug(InputAction.CallbackContext context)
+	{
+		AddCoins(100);
+	}
+#endif
 
 	public virtual int AddCoins(int count)
     {
@@ -55,6 +78,13 @@ public class ControllerPlayer : ControllerAbstract
 		Pawn.transform.position = RespawnPoint.transform.position;
 	}
 
+	public virtual void CollectRarity(GachaRarities rarity)
+	{
+		if (CollectedRarities.Contains(rarity)) return;
+		CollectedRarities.Add(rarity);
+		GameManager.Instance.PlayOneShot(newGachaSound);
+	}
+
 	public override void Start()
 	{
 		base.Start();
@@ -62,6 +92,10 @@ public class ControllerPlayer : ControllerAbstract
 		inputMove = InputSystem.actions.FindAction("Move");
 		inputInteract = InputSystem.actions.FindAction("Interact");
 		inputInteract.performed += HandleInteract;
+#if UNITY_EDITOR
+		inputDebug = InputSystem.actions.FindAction("Jump");
+		inputDebug.performed += HandleDebug;
+#endif
 		gui.SetMoney(Coins);
 	}
 
