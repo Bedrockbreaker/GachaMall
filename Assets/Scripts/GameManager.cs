@@ -66,6 +66,8 @@ public sealed class GameManager : MonoBehaviour
 		PawnAbstract playerPawn = player.Pawn;
 		if (playerPawn == null) return;
 
+		Debug.Log(mainCamera);
+
 		mainCamera.target = playerPawn.CameraLookTarget;
 	}
 
