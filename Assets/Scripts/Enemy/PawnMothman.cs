@@ -9,7 +9,8 @@ public class PawnMothman : PawnEnemy
     }
 
     public override void target_state(){
-        chase_target();
+        direction = Controller.target.transform.position - transform.position;
+        Mover.Move(direction.normalized);
     }
 
     public override void hit_state(Collider2D other){

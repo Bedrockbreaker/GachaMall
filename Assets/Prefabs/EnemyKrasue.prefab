@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 6115498506518318319}
-  speed: 35
+  speed: 15
 --- !u!114 &98707984261694848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,9 +203,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 5075621723317051916}
   Mover: {fileID: 3704210324579389916}
-  sight_range: 20
+  sight_range: 10
   chase_timeout: 1
   retarget_timeout: 2
+  chase_timer: 0
+  random_wait_range: {x: 1, y: 3}
   direction: {x: 0, y: 0}
 --- !u!1 &6913740041224883900
 GameObject:
@@ -253,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pawn: {fileID: 98707984261694848}
   target: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!1 &7010858756839727195
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +282,8 @@ Transform:
   m_GameObject: {fileID: 7010858756839727195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.025138, y: 0.0095528, z: 0}
+  m_LocalScale: {x: 1.34, y: 2.3968, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 466953678093681701}
@@ -357,8 +360,8 @@ Transform:
   m_GameObject: {fileID: 8577420717097093763}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0.009258866, z: -0.0012908168}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.38443, y: 0.027913, z: -0.0012908168}
+  m_LocalScale: {x: 2.42, y: 2.81, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 466953678093681701}

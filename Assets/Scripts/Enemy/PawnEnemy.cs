@@ -1,3 +1,4 @@
+using NavMeshPlus.Extensions;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -11,8 +12,9 @@ public class PawnEnemy : MonoBehaviour
     public float chase_timeout = 5;
     public float retarget_timeout=3;
     private float retarget_timer=0;
-    private float chase_timer=0;
+    public float chase_timer=0;
     private float random_wait;
+    public Vector2 random_wait_range=new Vector2(1, 3);
     public Vector2 direction = Vector2.zero;
 
     public void OnTriggerEnter2D(Collider2D other){
@@ -51,7 +53,10 @@ public class PawnEnemy : MonoBehaviour
     public void alert_target(Collider2D other){
         if (!other.TryGetComponent<PawnHuman>(out var human)) return;
 		ControllerPlayer player = human.Controller as ControllerPlayer;
-		if (player == null) return;
+		if (player == null){
+            random_wait=0;
+            return;
+        }
         var player_pawn=player.Pawn.gameObject;
         
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -64,14 +69,14 @@ public class PawnEnemy : MonoBehaviour
         clear_target();
     }
     public void chase_target(){
-        direction = Controller.target.transform.position - transform.position;
-        Mover.Move(direction.normalized);
+
+        Controller.agent.SetDestination(Controller.target.transform.position);
+
         chase_timer+=Time.deltaTime;
 
         if(chase_timeout<chase_timer){
             clear_target();
-        }
-    }
+        }    }
 
     public void lunge_target(){
         Mover.Move(direction.normalized);
@@ -84,7 +89,10 @@ public class PawnEnemy : MonoBehaviour
     public void kill_target(Collider2D other){
         if (!other.TryGetComponent<PawnHuman>(out var human)) return;
 		ControllerPlayer player = human.Controller as ControllerPlayer;
-		if (player == null) return;
+		if (player == null){
+            random_wait=0;
+            return;
+        }
 
         clear_target();
 		player.Die();
@@ -93,11 +101,16 @@ public class PawnEnemy : MonoBehaviour
     public void steal_from_target(Collider2D other){
         if (!other.TryGetComponent<PawnHuman>(out var human)) return;
 		ControllerPlayer player = human.Controller as ControllerPlayer;
-		if (player == null) return;
+		if (player == null){
+            random_wait=0;
+            return;
+        }
         
         clear_target();
         if (player.Coins>0){
             player.RemoveCoins(1);
+            direction=player.transform.position-transform.position;
+
         }else{
             player.Die();
         }
@@ -114,7 +127,7 @@ public class PawnEnemy : MonoBehaviour
         random_wait-=Time.deltaTime;
         if (random_wait<=0){
             direction = Random.insideUnitCircle.normalized;
-            random_wait=Random.Range(3, 10); 
+            random_wait=Random.Range(random_wait_range[0], random_wait_range[0]); 
         }
         Mover.Move(direction);
 
