@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GachaMachine : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class GachaMachine : MonoBehaviour
     [Header("Component References")]
     [SerializeField]
     private CanvasGroup canvasGroup;
+    [SerializeField]
+    private Image controlsImage;
     [SerializeField]
     private TextMeshProUGUI moneyText;
     private ControllerPlayer nearbyPlayer;
@@ -27,11 +31,16 @@ public class GachaMachine : MonoBehaviour
     public Color insufficentFundsColor = new (0.9716981f, 0.3895959f, 0.3895959f, 1.0f);
     public float interactionTransitionTime = 0.5f;
     public float startAlpha = 0f;
+    [SerializeField]
+    private Sprite interactE;
+    [SerializeField]
+    private Sprite interactFaceButtonSouth;
 
     void Start()
     {
         canvasGroup.alpha = startAlpha;
         moneyText.text = $"${(coinsCost / 4.0f).ToString("F2")}";
+        InputSystem.actions.FindAction("Move").performed += UpdateControlsImage;
     }
 
     private void Interact()
@@ -134,6 +143,19 @@ public class GachaMachine : MonoBehaviour
 
         canvasGroup.alpha = targetAlpha;
         startAlpha = targetAlpha;
+    }
+
+    private void UpdateControlsImage(InputAction.CallbackContext context)
+    {
+        bool isGamepad = context.control.device is Gamepad;
+        if (isGamepad)
+        {
+            controlsImage.sprite = interactFaceButtonSouth;
+        }
+        else
+        {
+            controlsImage.sprite = interactE;
+        }
     }
 }
 
