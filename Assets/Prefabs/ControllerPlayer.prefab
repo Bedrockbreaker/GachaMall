@@ -49,3 +49,4 @@ MonoBehaviour:
   allowInput: 1
   gui: {fileID: 0}
   RespawnPoint: {fileID: 0}
+  newGachaSound: {fileID: 8300000, guid: 595c0434cd2e9f749a32faaf37e4cce0, type: 3}

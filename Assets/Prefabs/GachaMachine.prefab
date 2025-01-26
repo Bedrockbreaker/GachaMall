@@ -450,6 +450,10 @@ MonoBehaviour:
   startAlpha: 0
   interactE: {fileID: 1756113324, guid: e9941c159daec954f9d35c86d6e6905b, type: 3}
   interactFaceButtonSouth: {fileID: 36441943, guid: e9941c159daec954f9d35c86d6e6905b, type: 3}
+  interactSound: {fileID: 8300000, guid: 3f6ca756c4d2067459cab292beb39b6d, type: 3}
+  insufficientFundsSound: {fileID: 8300000, guid: b42b072da6d0dad47b3991d775670ac4, type: 3}
+  sufficientFundsSound: {fileID: 8300000, guid: b2996bda50f084f49ab1cd033dd59b5f, type: 3}
+  gachaBuildUpSound: {fileID: 8300000, guid: 79d398ccf252c184d80e88724e2c93e6, type: 3}
 --- !u!1 &3986886385407020520
 GameObject:
   m_ObjectHideFlags: 0
