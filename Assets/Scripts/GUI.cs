@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class GUI : MonoBehaviour
 {
-	public event Action OnGachaAnimationFinished;
+	public event Action<GachaBubble> OnGachaAnimationFinished;
+	public event Action OnFinalCutsceneFullyFaded;
+	public event Action OnFinalCutsceneFinished;
 
 	[SerializeField]
 	private Canvas canvas;
@@ -35,6 +37,8 @@ public class GUI : MonoBehaviour
 	private Sprite spriteLegendary;
 	[SerializeField]
 	private GachaBubble gachaBubblePrefab;
+	[SerializeField]
+	private GameObject finalCutscene;
 
 	[SerializeField]
 	private Sprite deathScreenCommon;
@@ -86,12 +90,31 @@ public class GUI : MonoBehaviour
 				gachaLegendary.sprite = spriteLegendary;
 				break;
 			case GachaRarities.Unique:
+				moneyText.text = "";
+				gachaCommon.color = new (0, 0, 0, 0);
+				gachaUncommon.color = new (0, 0, 0, 0);
+				gachaRare.color = new (0, 0, 0, 0);
+				gachaEpic.color = new (0, 0, 0, 0);
+				gachaLegendary.color = new (0, 0, 0, 0);
+				finalCutscene.SetActive(true);
 				break;
 			default:
 				throw new Exception("Invalid rarity");
 		}
 
-		OnGachaAnimationFinished?.Invoke();
+		OnGachaAnimationFinished?.Invoke(gachaBubble);
+	}
+
+	public void FinalCutsceneFullyFaded_Internal()
+	{
+		OnFinalCutsceneFullyFaded?.Invoke();
+	}
+
+	// Referenced by timeline signal
+	public void FinalCutsceneFinished_Internal()
+	{
+		finalCutscene.SetActive(false);
+		OnFinalCutsceneFinished?.Invoke();
 	}
 
 	public void setDeathScreen(GachaRarities rarity)

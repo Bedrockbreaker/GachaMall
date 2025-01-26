@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public sealed class GameManager : MonoBehaviour
@@ -20,6 +19,8 @@ public sealed class GameManager : MonoBehaviour
 	private GUI gui;
 	[SerializeField]
 	private GachaMachine gachaMachine;
+	[SerializeField]
+	private CutsceneHelper cutsceneHelper;
 	[SerializeField]
 	private float coinSpawnDelay = 15f;
 	[SerializeField]
@@ -44,7 +45,6 @@ public sealed class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		// TODO: only start game after play button is pressed
 		StartGame();
 	}
 
@@ -53,6 +53,9 @@ public sealed class GameManager : MonoBehaviour
 		StartCoroutine(SpawnCoin());
 		gachaMachine.OnGachaCollected += OnGachaCollected;
 		gui.OnGachaAnimationFinished += OnGachaAnimationFinished;
+		gui.OnFinalCutsceneFullyFaded += OnFinalCutsceneFullyFaded;
+		gui.OnFinalCutsceneFinished += () => StartCoroutine(OnFinalCutsceneFinished());
+		cutsceneHelper.SayText();
 	}
 
 	public void RegisterController(ControllerAbstract controller)
@@ -90,15 +93,6 @@ public sealed class GameManager : MonoBehaviour
         Vector2 spawnPoint,
 		bool controllerIsPrefab
 	) {
-#if UNITY_EDITOR
-		if (spawnPoint == null)
-		{
-			SceneView sceneView = SceneView.lastActiveSceneView;
-			spawnPoint = sceneView.pivot
-				- sceneView.rotation * Vector3.forward * sceneView.cameraDistance;
-		}
-#endif
-
 		PawnAbstract pawn = Instantiate(
 			pawnPrefab,
 			new Vector3(spawnPoint.x, spawnPoint.y, 0),
@@ -164,7 +158,31 @@ public sealed class GameManager : MonoBehaviour
 		EnemySpawner.SpawnEnemy(drop.rarity);
 	}
 
-	private void OnGachaAnimationFinished() => Player.AllowInput = true;
+	private void OnGachaAnimationFinished(GachaBubble gachaBubble)
+	{
+		if (gachaBubble.Rarity == GachaRarities.Unique) return;
+		Player.AllowInput = true;
+	}
 
 	public void PlayOneShot(AudioClip clip) => audioSource.PlayOneShot(clip);
+
+	public void OnFinalCutsceneFullyFaded()
+	{
+		Destroy(Player.Pawn.gameObject);
+		// TODO: kill all enemy pawns
+	}
+
+	public IEnumerator OnFinalCutsceneFinished()
+	{
+		mainCamera.target = cutsceneHelper.transform;
+		cutsceneHelper.SpawnPlayer2();
+		cutsceneHelper.SayText();
+
+		yield return new WaitForSeconds(5f);
+
+		Application.Quit();
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#endif
+	}
 }

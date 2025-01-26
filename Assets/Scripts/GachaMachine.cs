@@ -55,19 +55,10 @@ public class GachaMachine : MonoBehaviour
     {
         nearbyPlayer.RemoveCoins(coinsCost);
 
-        if (nearbyPlayer.Coins < coinsCost)
-        {
-            moneyText.color = insufficentFundsColor;
-            nearbyPlayer.Pawn.OnInteract -= Interact;
-            nearbyPlayer.Pawn.OnInteract += BadInteract;
-            nearbyPlayer = null;
-        }
-
         GachaDrops drop;
 
         if (nearbyPlayer.CollectedRarities.Count == 5)
         {
-            Debug.Log("All rarities collected, game is won!");
             drop = new GachaDrops {
                 drop_weight = 0,
                 rarity = GachaRarities.Unique
@@ -82,6 +73,14 @@ public class GachaMachine : MonoBehaviour
         GameManager.Instance.PlayOneShot(interactSound);
         GameManager.Instance.PlayOneShot(sufficientFundsSound);
         GameManager.Instance.PlayOneShot(gachaBuildUpSound);
+
+        if (nearbyPlayer.Coins < coinsCost)
+        {
+            moneyText.color = insufficentFundsColor;
+            nearbyPlayer.Pawn.OnInteract -= Interact;
+            nearbyPlayer.Pawn.OnInteract += BadInteract;
+            nearbyPlayer = null;
+        }
     }
 
     private void BadInteract()

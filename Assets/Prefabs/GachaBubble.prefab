@@ -689,7 +689,7 @@ MonoBehaviour:
   spriteUniqueTop: {fileID: 847538993, guid: c6831d0dd2433304e88e642f1ca7cec6, type: 3}
   spriteUniqueOpen: {fileID: 975833280, guid: 81ae57f6e5a8abf4488a11c08d2d022c, type: 3}
   spriteUniqueBottom: {fileID: 1921691919, guid: c6831d0dd2433304e88e642f1ca7cec6, type: 3}
-  spriteUniquePlush: {fileID: -277710019, guid: d8d127278f3e4a940a4d700ea409b519, type: 3}
+  spriteUniquePlush: {fileID: -2311659948842064771, guid: 1dfe3b3f49bffdb4686e60569802eea8, type: 3}
   gachaOpen: {fileID: 8300000, guid: bcb1f9c1463b8ab40976d0c2e9a7177f, type: 3}
   gachaFanfare: {fileID: 8300000, guid: a8072316b2f786a4abab24f11b3c45ba, type: 3}
 --- !u!114 &3600350970353924175
