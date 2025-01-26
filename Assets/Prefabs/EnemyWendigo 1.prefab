@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8293983741926989810}
   - component: {fileID: 178987155729647453}
   - component: {fileID: 1014915776428304762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425804057702868351}
   - component: {fileID: 5092111946294195929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6065642657948493594}
   - component: {fileID: 5352375345532435488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4815425281859073990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyWendigo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9174228450348920349}
   - component: {fileID: 2469507257715879668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

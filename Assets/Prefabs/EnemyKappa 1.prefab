@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7959662156456156061}
   - component: {fileID: 2912494040164574726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4386098593851329740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyKappa 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8130139499203328769}
   - component: {fileID: 576267703400052723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 3761688036813534910}
   - component: {fileID: 5658319197913817656}
   - component: {fileID: 5500606810852504946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 590856493091254351}
   - component: {fileID: 3417504624816116816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

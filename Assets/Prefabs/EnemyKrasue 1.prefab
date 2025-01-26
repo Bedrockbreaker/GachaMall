@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2269362149535998840}
   - component: {fileID: 5304488393735708121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3908219265585359356}
   - component: {fileID: 9049755609505700127}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9107547198058453842}
   - component: {fileID: 4301753715119343489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 671337127793966298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyKrasue 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 3279410582690779572}
   - component: {fileID: 3268147408480069608}
   - component: {fileID: 1683266850871452774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -33,51 +33,31 @@ public class EnemySpawner : MonoBehaviour
         switch (rarity){
 			case GachaRarities.Common:
 				 if (!SpawnedRarity[0]){
-                    Spawned = Instantiate(
-                        CommonSpawn,
-                        Spawner.position,
-                        Spawner.rotation
-                    );
+                    CommonSpawn.transform.position=Spawner.position;
                     SpawnedRarity[0]=true;
                 }
 				break;
 			case GachaRarities.Uncommon:
 				 if (!SpawnedRarity[1]){
-                    Spawned = Instantiate(
-                        UncommonSpawn,
-                        Spawner.position,
-                        Spawner.rotation
-                    );
+                    UncommonSpawn.transform.position=Spawner.position;
                     SpawnedRarity[1]=true;
                 }
                 break;
 			case GachaRarities.Rare:
 				 if (!SpawnedRarity[2]){
-                    Spawned = Instantiate(
-                        CommonSpawn,
-                        Spawner.position,
-                        Spawner.rotation
-                    );
+                    RareSpawn.transform.position=Spawner.position;
                     SpawnedRarity[2]=true;
                 }
                 break;
 			case GachaRarities.Epic:
                 if (!SpawnedRarity[3]){
-                    Spawned = Instantiate(
-                        EpicSpawn,
-                        Spawner.position,
-                        Spawner.rotation
-                    );
+                    EpicSpawn.transform.position=Spawner.position;
                     SpawnedRarity[3]=true;
                 }
                 break;
 			case GachaRarities.Legendary:
                 if (!SpawnedRarity[4]){
-                    Spawned = Instantiate(
-                        LegendarySpawn,
-                        Spawner.position,
-                        Spawner.rotation
-                    );
+                    LegendarySpawn.transform.position=Spawner.position;
                     SpawnedRarity[4]=true;
                 }
 				break;

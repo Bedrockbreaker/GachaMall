@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377211717677309848}
   - component: {fileID: 4548501990793458529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1631375, y: -0.037231743}
+  m_Offset: {x: 0.11340785, y: -0.20546085}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2126802, y: 1.271269}
+  m_Size: {x: 0.63960207, y: 0.93481076}
   m_EdgeRadius: 0
 --- !u!1 &1358975699944895178
 GameObject:
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4096017818372402607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyMothman 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6970543577034925901}
   - component: {fileID: 3466783418353884852}
   - component: {fileID: 3949436429707298906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4738704679394246558}
   - component: {fileID: 4342661573662724847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,11 +447,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1631375, y: -0.037231743}
+  m_Offset: {x: 0.12287997, y: -0.037231743}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -461,7 +461,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2126802, y: 1.271269}
+  m_Size: {x: 0.75327015, y: 1.271269}
   m_EdgeRadius: 0
 --- !u!1 &8198035559436343767
 GameObject:
@@ -473,7 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852139935831100704}
   - component: {fileID: 819942714769293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045081486028645521}
   - component: {fileID: 5414080041862422672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2911927256735153339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyMari 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6990166929714567516}
   - component: {fileID: 5936881562392802061}
   - component: {fileID: 463877893246399703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PawnEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3509278552691681702}
   - component: {fileID: 1955721212901496929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6642612979610596667}
   - component: {fileID: 2597160293300975817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
