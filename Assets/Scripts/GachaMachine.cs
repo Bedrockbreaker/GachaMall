@@ -59,7 +59,6 @@ public class GachaMachine : MonoBehaviour
 
         if (nearbyPlayer.CollectedRarities.Count == 5)
         {
-            Debug.Log("All rarities collected, game is won!");
             drop = new GachaDrops {
                 drop_weight = 0,
                 rarity = GachaRarities.Unique
