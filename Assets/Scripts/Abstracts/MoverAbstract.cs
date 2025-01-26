@@ -6,4 +6,6 @@ public abstract class MoverAbstract : MonoBehaviour
 	new protected Rigidbody2D rigidbody;
 
 	public abstract void Move(Vector2 directionNormalized);
+
+	public abstract void MoveTo(Vector2 position);
 }
