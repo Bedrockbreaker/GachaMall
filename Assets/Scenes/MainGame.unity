@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 243728386}
   - component: {fileID: 243728385}
   - component: {fileID: 243728384}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Nonwalkable (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16171,7 +16171,7 @@ GameObject:
   - component: {fileID: 840800118}
   - component: {fileID: 840800117}
   - component: {fileID: 840800116}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Nonwalkable (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18564,7 +18564,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2911927256735153339, guid: 87cd9b27098d1dd479e05f79d49efde0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20634651
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 2911927256735153339, guid: 87cd9b27098d1dd479e05f79d49efde0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19051,7 +19051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637459352306424737, guid: 90c2d67b51856ee40b1c5977d0a2c289, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.12
+      value: 10.37
       objectReference: {fileID: 0}
     - target: {fileID: 8637459352306424737, guid: 90c2d67b51856ee40b1c5977d0a2c289, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19491,11 +19491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671337127793966298, guid: f778fd70dc9652b4f94ba2d4ffef4e67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49833488
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 671337127793966298, guid: f778fd70dc9652b4f94ba2d4ffef4e67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2660866
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 671337127793966298, guid: f778fd70dc9652b4f94ba2d4ffef4e67, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20058,7 +20058,7 @@ GameObject:
   - component: {fileID: 1846371390}
   - component: {fileID: 1846371389}
   - component: {fileID: 1846371388}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Nonwalkable (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20774,7 +20774,7 @@ GameObject:
   - component: {fileID: 2064330762}
   - component: {fileID: 2064330761}
   - component: {fileID: 2064330760}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Nonwalkable (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
