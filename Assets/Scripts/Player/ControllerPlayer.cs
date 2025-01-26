@@ -64,7 +64,7 @@ public class ControllerPlayer : ControllerAbstract
 
     public virtual int RemoveCoins(int count)
     {
-        Assert.IsTrue(count > 0);
+        Assert.IsTrue(count >= 0);
         // TODO: kill the player if not enough?
         Coins -= count;
 		gui.SetMoney(Coins);

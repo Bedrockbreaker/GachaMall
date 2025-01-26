@@ -25,7 +25,7 @@ public sealed class GameManager : MonoBehaviour
 	[SerializeField]
 	private int maxCoinSpawns = 4;
 	[SerializeField]
-	public EnemySpawner EnemySpawner { get; } = new();
+	public EnemySpawner EnemySpawner;
 
 
 	private void Awake()
