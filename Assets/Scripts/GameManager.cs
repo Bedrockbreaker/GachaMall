@@ -25,28 +25,22 @@ public sealed class GameManager : MonoBehaviour
 	[SerializeField]
 	private int maxCoinSpawns = 4;
 
-	public GameManager()
-	{
-		if (Instance != null) return;
-		Instance = this;
-	}
-
 	private void Awake()
 	{
-		if (Instance != this)
+		if (Instance != null && Instance != this)
 		{
 			Destroy(gameObject);
 			return;
 		}
 		else
 		{
+			Instance = this;
 			DontDestroyOnLoad(gameObject);
 		}
 	}
 
 	private void Start()
 	{
-		
 		// TODO: only start game after play button is pressed
 		StartGame();
 	}
