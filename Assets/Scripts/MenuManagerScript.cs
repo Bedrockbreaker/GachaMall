@@ -7,11 +7,10 @@ public class MenuManagerScript : MonoBehaviour
     public GameObject mainMenuScreen;
     public GameObject howToPlayScreen;
     public GameObject creditScreen;
-    public string gameScene;
 
     public void StartGame()
     {
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene("MainGame");
     }
 
     public void HowToPlay()
