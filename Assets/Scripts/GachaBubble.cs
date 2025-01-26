@@ -73,6 +73,8 @@ public class GachaBubble : MonoBehaviour
 	[SerializeField]
 	private Sprite spriteUniqueBottom;
 	[SerializeField]
+	private Sprite spriteUniquePlush;
+	[SerializeField]
 	private AudioClip gachaOpen;
 	[SerializeField]
 	private AudioClip gachaFanfare;
@@ -127,7 +129,7 @@ public class GachaBubble : MonoBehaviour
 			GachaRarities.Rare => spriteRarePlush,
 			GachaRarities.Epic => spriteEpicPlush,
 			GachaRarities.Legendary => spriteLegendaryPlush,
-			GachaRarities.Unique => null,
+			GachaRarities.Unique => spriteUniquePlush,
 			_ => throw new Exception("Invalid rarity")
 		};
 
