@@ -22,6 +22,8 @@ public class GUI : MonoBehaviour
 	[SerializeField]
 	private Image gachaLegendary;
 	[SerializeField]
+	private Image deathScreen;
+	[SerializeField]
 	private Sprite spriteCommon;
 	[SerializeField]
 	private Sprite spriteUncommon;
@@ -33,6 +35,17 @@ public class GUI : MonoBehaviour
 	private Sprite spriteLegendary;
 	[SerializeField]
 	private GachaBubble gachaBubblePrefab;
+
+	[SerializeField]
+	private Sprite deathScreenCommon;
+	[SerializeField]
+	private Sprite deathScreenUncommon;
+	[SerializeField]
+	private Sprite deathScreenRare;
+	[SerializeField]
+	private Sprite deathScreenEpic;
+	[SerializeField]
+	private Sprite deathScreenLegendary;
 
 	public void SetMoney(int coinsAmount)
 	{
@@ -79,5 +92,36 @@ public class GUI : MonoBehaviour
 		}
 
 		OnGachaAnimationFinished?.Invoke();
+	}
+
+	public void setDeathScreen(GachaRarities rarity)
+	{
+		switch (rarity)
+		{
+			case GachaRarities.Common:
+				deathScreen.sprite = deathScreenCommon;
+				break;
+			case GachaRarities.Uncommon:
+				deathScreen.sprite = deathScreenUncommon;
+				break;
+			case GachaRarities.Rare:
+				deathScreen.sprite = deathScreenRare;
+				break;
+			case GachaRarities.Epic:
+				deathScreen.sprite = deathScreenEpic;
+				break;
+			case GachaRarities.Legendary:
+				deathScreen.sprite = deathScreenLegendary;
+				break;
+			case GachaRarities.Unique:
+				break;
+			default:
+				throw new Exception("Invalid rarity");
+		}
+		deathScreen.enabled=true;
+		Invoke("clearDeathScreen",3);
+	}
+	public void clearDeathScreen(){
+		deathScreen.enabled=false;
 	}
 }

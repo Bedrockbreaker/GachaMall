@@ -71,11 +71,12 @@ public class ControllerPlayer : ControllerAbstract
         return Coins;
     }
 
-	public virtual void Die(){
+	public virtual void Die(GachaRarities rarity){
 		if (Coins>0){
 			RemoveCoins(Coins);
 		}
 		Pawn.transform.position = RespawnPoint.transform.position;
+		gui.setDeathScreen(rarity);
 	}
 
 	public virtual void CollectRarity(GachaRarities rarity)

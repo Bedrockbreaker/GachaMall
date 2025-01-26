@@ -14,5 +14,6 @@ public class PawnMari : PawnEnemy
 
     public override void hit_state(Collider2D other){
         alert_target(other);
+        kill_target(other);
     }
 }

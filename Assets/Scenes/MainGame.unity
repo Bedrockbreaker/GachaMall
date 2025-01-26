@@ -16457,6 +16457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControllerPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6440091480119446938, guid: 9e2bce5d2068a0f4988dec10c8cd875f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7583842373617589781, guid: 9e2bce5d2068a0f4988dec10c8cd875f, type: 3}
       propertyPath: gui
       value: 

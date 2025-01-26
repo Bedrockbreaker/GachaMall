@@ -25,9 +25,6 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy(GachaRarities rarity){
         GameObject Spawned;
         int index = UnityEngine.Random.Range(0, Spawners.Count-1);
-        print(Spawners.Count);
-        print(index);
-        print("create enemy");
         Transform Spawner = Spawners[index];
  
         switch (rarity){

@@ -11,6 +11,7 @@ public class ControllerEnemy : MonoBehaviour
     public GameObject target;
 
     public NavMeshAgent agent;
+    public GachaRarities rarity;
     
     //private
 	public void Start()
@@ -29,6 +30,5 @@ public class ControllerEnemy : MonoBehaviour
         }else{
             Pawn.default_state();
         }
-        Pawn.debug_sight();
     }
 }

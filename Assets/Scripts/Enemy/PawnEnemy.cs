@@ -7,6 +7,7 @@ public class PawnEnemy : MonoBehaviour
 {
     public ControllerEnemy Controller;
     public MoverAbstract Mover;
+    public AudioSource hitSource;
     
     public float sight_range=25;
     public float chase_timeout = 5;
@@ -76,7 +77,8 @@ public class PawnEnemy : MonoBehaviour
 
         if(chase_timeout<chase_timer){
             clear_target();
-        }    }
+        }
+    }
 
     public void lunge_target(){
         Mover.Move(direction.normalized);
@@ -95,7 +97,8 @@ public class PawnEnemy : MonoBehaviour
         }
 
         clear_target();
-		player.Die();
+		player.Die(Controller.rarity);
+        hitSource.Play(0);
     }
 
     public void steal_from_target(Collider2D other){
@@ -110,9 +113,9 @@ public class PawnEnemy : MonoBehaviour
         if (player.Coins>0){
             player.RemoveCoins(1);
             direction=player.transform.position-transform.position;
-
+            hitSource.Play(0);
         }else{
-            player.Die();
+            player.Die(Controller.rarity);
         }
         
 		
@@ -144,7 +147,6 @@ public class PawnEnemy : MonoBehaviour
         if (Controller.target){
             Debug.DrawRay(transform.position, direction, Color.green);
         }else{
-            
             Debug.DrawRay(transform.position, direction, Color.red);
         }
     }
