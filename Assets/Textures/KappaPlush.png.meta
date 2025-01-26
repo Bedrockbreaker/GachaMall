@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be4fc6c44abe5734f8ca74a8a1fee03d
+guid: 9ed25ac8c338bb4419fd0643970e7e73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5968886433528020744
-    second: TEMP_GachaponMachine_0
+      213: -5353909795365482445
+    second: KappaPlush_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TEMP_GachaponMachine_0
+      name: KappaPlush_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 583
-        height: 975
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80ff517369eb5d250800000000000000
-      internalID: 5968886433528020744
+      spriteID: 33091c7486713b5b0800000000000000
+      internalID: -5353909795365482445
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 99ff10b5f4b0ae94b83d81962218ed48
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TEMP_GachaponMachine_0: 5968886433528020744
+      KappaPlush_0: -5353909795365482445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

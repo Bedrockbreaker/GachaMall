@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1553066184}
+  gui: {fileID: 1322520174}
   gachaMachine: {fileID: 36320156}
   coinSpawnDelay: 15
   maxCoinSpawns: 6
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Pawn>k__BackingField: {fileID: 810718898}
   <Coins>k__BackingField: 100
+  allowInput: 1
   gui: {fileID: 1322520174}
   RespawnPoint: {fileID: 0}
 --- !u!1001 &1118768752
@@ -681,10 +683,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GachaMachine
       objectReference: {fileID: 0}
-    - target: {fileID: 6339648781671176224, guid: 14690d0940c79ec459da2e6b9bd620d8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1046361023, guid: e0b75661efa77b54da3d48262effa13d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -702,6 +700,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 750333338219855616, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3262465652859623842, guid: bdf14c8f175491346b822b14a3e7f0af, type: 3}
+    - target: {fileID: 2229631759003531962, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233523294432805681, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3262465652859623842, guid: bdf14c8f175491346b822b14a3e7f0af, type: 3}
+    - target: {fileID: 4399413928831770006, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3262465652859623842, guid: bdf14c8f175491346b822b14a3e7f0af, type: 3}
     - target: {fileID: 4526876579376301535, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -714,6 +728,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8682625092126933230, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3262465652859623842, guid: bdf14c8f175491346b822b14a3e7f0af, type: 3}
+    - target: {fileID: 8934005202215952739, guid: 3e23000cdb132d441bd12bde7f5df556, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3262465652859623842, guid: bdf14c8f175491346b822b14a3e7f0af, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

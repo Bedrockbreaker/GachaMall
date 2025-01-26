@@ -434,19 +434,19 @@ MonoBehaviour:
   gachaBubblePrefab: {fileID: 8844458415684301290, guid: 14e5709e52eb5cf4e82b36b0cb17ff2a, type: 3}
   coinsCost: 4
   drops:
-  - name: Common
+  - rarity: 0
     drop_weight: 5
     color: {r: 0.64705884, g: 0.13725491, b: 0.12941177, a: 1}
-  - name: Uncommon
+  - rarity: 1
     drop_weight: 4
     color: {r: 0.21960786, g: 0.63529414, b: 0.12941177, a: 1}
-  - name: Rare
+  - rarity: 2
     drop_weight: 3
     color: {r: 0.15686275, g: 0.13725491, b: 0.64705884, a: 1}
-  - name: Epic
+  - rarity: 3
     drop_weight: 2
     color: {r: 0.41960788, g: 0.15294118, b: 0.83921576, a: 1}
-  - name: Legendary
+  - rarity: 4
     drop_weight: 1
     color: {r: 0.70980394, g: 0.5254902, b: 0.09411766, a: 1}
   insufficentFundsColor: {r: 0.9716981, g: 0.3895959, b: 0.3895959, a: 1}
