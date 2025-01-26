@@ -20,6 +20,7 @@ public class SmoothCamera : MonoBehaviour
 
 	private void LateUpdate()
 	{
+		if (target == null) return;
 		float cameraHeight = thisCamera.orthographicSize * 2;
 		float cameraWidth = cameraHeight * thisCamera.aspect;
 
