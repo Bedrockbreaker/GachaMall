@@ -18422,6 +18422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PawnHuman
       objectReference: {fileID: 0}
+    - target: {fileID: 6640246103559796666, guid: 90c2d67b51856ee40b1c5977d0a2c289, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8637459352306424737, guid: 90c2d67b51856ee40b1c5977d0a2c289, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.27
