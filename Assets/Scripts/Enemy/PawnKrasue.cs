@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class PawnKrasue : PawnEnemy
 {
@@ -13,9 +14,11 @@ public class PawnKrasue : PawnEnemy
     }
     public override void target_state(){
         lunge_target();
+        
     }
 
     public override void hit_state(Collider2D other){
         kill_target(other);
+        direction=-direction;
     }
 }

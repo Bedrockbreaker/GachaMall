@@ -11,8 +11,11 @@ public sealed class GameManager : MonoBehaviour
 	private List<ControllerAbstract> Controllers { get; } = new();
 	private List<CoinSpawner> CoinSpawners { get; } = new();
 	private List<CoinSpawner> ValidCoinSpawners { get; } = new();
+	private ControllerPlayer player;
 	[SerializeField]
 	private SmoothCamera mainCamera;
+	[SerializeField]
+	private GUI gui;
 	[SerializeField]
 	private GachaMachine gachaMachine;
 	[SerializeField]
@@ -49,6 +52,7 @@ public sealed class GameManager : MonoBehaviour
 	{
 		StartCoroutine(SpawnCoin());
 		gachaMachine.OnGachaCollected += OnGachaCollected;
+		gui.OnGachaAnimationFinished += OnGachaAnimationFinished;
 	}
 
 	public void RegisterController(ControllerAbstract controller)
@@ -57,8 +61,12 @@ public sealed class GameManager : MonoBehaviour
 
 		if (controller is not ControllerPlayer player) return;
 
+		this.player = player;
+
 		PawnAbstract playerPawn = player.Pawn;
 		if (playerPawn == null) return;
+
+		Debug.Log(mainCamera);
 
 		mainCamera.target = playerPawn.CameraLookTarget;
 	}
@@ -142,8 +150,10 @@ public sealed class GameManager : MonoBehaviour
 		StartCoroutine(SpawnCoin());
 	}
 
-	private void OnGachaCollected()
+	private void OnGachaCollected(GachaDrops drop)
 	{
+		player.allowInput = false;
+
 		foreach (CoinSpawner coinSpawner in CoinSpawners)
 		{
 			if (coinSpawner.ResetSpawner())
@@ -152,5 +162,9 @@ public sealed class GameManager : MonoBehaviour
 				ValidCoinSpawners.Add(coinSpawner);
 			}
 		}
+
+		gui.RevealGacha(drop.rarity);
 	}
+
+	private void OnGachaAnimationFinished() => player.allowInput = true;
 }

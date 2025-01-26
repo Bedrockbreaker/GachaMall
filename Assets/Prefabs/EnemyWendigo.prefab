@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1903389202013463824}
   - component: {fileID: 4476743796633227058}
   - component: {fileID: 2108839672640900226}
+  - component: {fileID: 7705674279023401339}
   m_Layer: 0
   m_Name: PawnEnemy
   m_TagString: Enemy
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -4864586392625904324, guid: a4be6839dcb7ddc46a835a0d1cc37923, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -173,7 +174,31 @@ MonoBehaviour:
   sight_range: 10
   chase_timeout: 10
   retarget_timeout: 3
-  direction: {x: 0, y: 0}
+  chase_timer: 0
+  random_wait_range: {x: 1, y: 3}
+  direction: {x: 1, y: 8}
+--- !u!195 &7705674279023401339
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018491999974594510}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.38
+  m_Speed: 3.5
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.32
+  m_BaseOffset: 0.66
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1645703773793013811
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 1645703773793013811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16141224, y: 0.05300224, z: -0.0012908168}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -240,7 +265,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.16397583, y: -0.050411433}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -250,7 +275,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.23616213, y: 0.3721738}
+  m_Size: {x: 0.46, y: 1.08}
   m_EdgeRadius: 0
 --- !u!1 &2094094456217685069
 GameObject:
@@ -318,7 +343,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.018439636, y: -0.009170294}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -328,7 +353,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.15661299, y: 0.3292666}
+  m_Size: {x: 0.32, y: 0.99}
   m_EdgeRadius: 0
 --- !u!1 &5015132700373490984
 GameObject:
@@ -376,6 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pawn: {fileID: 2108839672640900226}
   target: {fileID: 0}
+  agent: {fileID: 7705674279023401339}
 --- !u!1 &7561126081374462499
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,16 +2,20 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GachaMachine : MonoBehaviour
 {
-    
+
     private bool canInteract = true;
-    public event Action OnGachaCollected;
+    public event Action<GachaDrops> OnGachaCollected;
 
     [Header("Component References")]
     [SerializeField]
     private CanvasGroup canvasGroup;
+    [SerializeField]
+    private Image controlsImage;
     [SerializeField]
     private TextMeshProUGUI moneyText;
     private ControllerPlayer nearbyPlayer;
@@ -27,11 +31,16 @@ public class GachaMachine : MonoBehaviour
     public Color insufficentFundsColor = new (0.9716981f, 0.3895959f, 0.3895959f, 1.0f);
     public float interactionTransitionTime = 0.5f;
     public float startAlpha = 0f;
+    [SerializeField]
+    private Sprite interactE;
+    [SerializeField]
+    private Sprite interactFaceButtonSouth;
 
     void Start()
     {
         canvasGroup.alpha = startAlpha;
         moneyText.text = $"${(coinsCost / 4.0f).ToString("F2")}";
+        InputSystem.actions.FindAction("Move").performed += UpdateControlsImage;
     }
 
     private void Interact()
@@ -39,26 +48,21 @@ public class GachaMachine : MonoBehaviour
         canInteract = false; // No spamming during the cutscene
         nearbyPlayer.RemoveCoins(coinsCost);
 
-        // HACK: causes the text to turn red if they don't have enough after the interaction
-        Collider2D playerCollider = nearbyPlayer.Pawn.gameObject.GetComponent<Collider2D>();
-        OnTriggerExit2D(playerCollider);
-        OnTriggerEnter2D(playerCollider);
+        if (nearbyPlayer.Coins < coinsCost)
+        {
+            moneyText.color = insufficentFundsColor;
+            nearbyPlayer.Pawn.OnInteract -= Interact;
+            nearbyPlayer = null;
+        }
 
         // TODO: check if player has acquired all gachas
 
         GachaDrops drop = choose_gacha();
-        GachaBubble gachaBubble = Instantiate(
-            gachaBubblePrefab,
-            transform.position,
-            Quaternion.identity
-        );
-
-        gachaBubble.BottomHalf.color = drop.color;
-
+        OnGachaCollected?.Invoke(drop);
         // TODO: play sound
+
         // TODO: wait for animation
 
-        OnGachaCollected?.Invoke();
         canInteract = true;
     }
 
@@ -86,7 +90,7 @@ public class GachaMachine : MonoBehaviour
             }
         }
 
-        throw new System.Exception("No gacha available, this should never happen during gameplay");
+        throw new Exception("No gacha available, this should never happen during gameplay");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -102,8 +106,8 @@ public class GachaMachine : MonoBehaviour
         else
         {
             moneyText.color = Color.white;
+            if (nearbyPlayer == null && canInteract) human.OnInteract += Interact;
             nearbyPlayer = player;
-            if (canInteract) human.OnInteract += Interact;
         }
 
         StartCoroutine(FadeCanvas(1f));
@@ -140,12 +144,23 @@ public class GachaMachine : MonoBehaviour
         canvasGroup.alpha = targetAlpha;
         startAlpha = targetAlpha;
     }
+
+    private void UpdateControlsImage(InputAction.CallbackContext context)
+    {
+        bool isGamepad = context.control.device is Gamepad;
+        if (isGamepad)
+        {
+            controlsImage.sprite = interactFaceButtonSouth;
+        }
+        else
+        {
+            controlsImage.sprite = interactE;
+        }
+    }
 }
 
-[System.Serializable]
+[Serializable]
 public class GachaDrops{
-    public string name;
+    public GachaRarities rarity;
     public int drop_weight;
-    public Color color;
-
 }

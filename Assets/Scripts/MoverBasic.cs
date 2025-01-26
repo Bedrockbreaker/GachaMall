@@ -9,4 +9,9 @@ public class MoverBasic : MoverAbstract
         Vector2 delta = speed * directionNormalized;
         rigidbody.linearVelocity = delta;
     }
+
+    public override void MoveTo(Vector2 position)
+    {
+        throw new System.Exception("Not implemented. Use MoverBasic#Move instead.");
+    }
 }
