@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GachaMachine : MonoBehaviour
 {
-
-    private bool canInteract = true;
     public event Action<GachaDrops> OnGachaCollected;
 
     [Header("Component References")]
@@ -36,6 +34,16 @@ public class GachaMachine : MonoBehaviour
     [SerializeField]
     private Sprite interactFaceButtonSouth;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip interactSound;
+    [SerializeField]
+    private AudioClip insufficientFundsSound;
+    [SerializeField]
+    private AudioClip sufficientFundsSound;
+    [SerializeField]
+    private AudioClip gachaBuildUpSound;
+
     void Start()
     {
         canvasGroup.alpha = startAlpha;
@@ -45,25 +53,40 @@ public class GachaMachine : MonoBehaviour
 
     private void Interact()
     {
-        canInteract = false; // No spamming during the cutscene
         nearbyPlayer.RemoveCoins(coinsCost);
 
         if (nearbyPlayer.Coins < coinsCost)
         {
             moneyText.color = insufficentFundsColor;
             nearbyPlayer.Pawn.OnInteract -= Interact;
+            nearbyPlayer.Pawn.OnInteract += BadInteract;
             nearbyPlayer = null;
         }
 
-        // TODO: check if player has acquired all gachas
+        GachaDrops drop;
 
-        GachaDrops drop = choose_gacha();
+        if (nearbyPlayer.CollectedRarities.Count == 5)
+        {
+            Debug.Log("All rarities collected, game is won!");
+            drop = new GachaDrops {
+                drop_weight = 0,
+                rarity = GachaRarities.Unique
+            };
+        }
+        else {
+            drop = choose_gacha();
+        }
+        
         OnGachaCollected?.Invoke(drop);
-        // TODO: play sound
 
-        // TODO: wait for animation
+        GameManager.Instance.PlayOneShot(interactSound);
+        GameManager.Instance.PlayOneShot(sufficientFundsSound);
+        GameManager.Instance.PlayOneShot(gachaBuildUpSound);
+    }
 
-        canInteract = true;
+    private void BadInteract()
+    {
+        GameManager.Instance.PlayOneShot(insufficientFundsSound);
     }
 
     private GachaDrops choose_gacha() {
@@ -102,11 +125,12 @@ public class GachaMachine : MonoBehaviour
         if (player.Coins < coinsCost)
         {
             moneyText.color = insufficentFundsColor;
+            human.OnInteract += BadInteract;
         }
         else
         {
             moneyText.color = Color.white;
-            if (nearbyPlayer == null && canInteract) human.OnInteract += Interact;
+            if (nearbyPlayer == null) human.OnInteract += Interact;
             nearbyPlayer = player;
         }
 
@@ -119,6 +143,7 @@ public class GachaMachine : MonoBehaviour
         if (!other.TryGetComponent<PawnHuman>(out var human)) return;
         nearbyPlayer = null;
         human.OnInteract -= Interact;
+        human.OnInteract -= BadInteract;
         ControllerPlayer player = human.Controller as ControllerPlayer;
         if (player == null) return;
 

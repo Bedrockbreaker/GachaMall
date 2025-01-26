@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 1
+  coinPickupSound: {fileID: 8300000, guid: 8cd7d6b075fe4bd409f36738d903d092, type: 3}
 --- !u!95 &8610438739219992286
 Animator:
   serializedVersion: 7
